@@ -1,0 +1,61 @@
+---
+title       : Whisky Advisor
+subtitle    : Find your favorite whisky
+author      : Fred Bosman
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Whisky Flavours
+
+Whisky is a very complex compositions of different flavours. These flavours range from fruity, floral, woody to peaty and winey. The diagram below shows 8 main categories.
+
+![width](WhiskyFlavours.jpg)
+
+The Whisky Advisor makes a suggestion that best fits your favorites flavours.
+
+--- .class #id 
+
+
+## The Dataset
+
+The dataset that I use is a set of 86 whiskies that have been classified in 12 variables. More than the 8 shown in the previous slide.
+```{r dataset, echo=FALSE}
+WhiskyData <- read.csv("whiskies.txt")
+
+head(str(WhiskyData))
+
+```
+
+This dataset is readily avaible on the internet and has been used in several other data analyses.
+
+--- .class #id 
+
+## Entering your preference
+
+As we saw in the previous slide, there are 12 variables - Body, Sweetness to Fruity, Floral - each of which as a value in the range of 0 to 4.
+
+The Whisky Advisor has 12 sliders on the left side, one for each of the variables.
+
+![width](Slider.png)
+
+You can make your choice by sliding to the desired value.
+
+When you are done, press the "Advise!"-button.
+
+--- .class #id 
+
+## Showing the results
+
+The preference entered on the left side is matched with the data in the whisky dataset. For each variable the absolute distance is calculated. The top three whiskies that are closest are shown, together with a spider chart. 
+
+![width](Starchart.png)
+
+
+
+
